@@ -105,18 +105,6 @@ class JdfDopravce(Base):
     rozliseni = Column(Integer)
 
 
-# class JdfLinkaZastavky(Base):
-#     __tablename__ = "jdf_linka_zastavky"  # name of the table
-#     id = Column(Integer, Sequence("jdf_linka_zastavky_id"), primary_key=True)
-#     id_linka = Column(Integer)
-#     cislo_linka = Column(CHAR(6))
-#     cislo_tarifni = Column(Integer)
-#     tarifni_pasmo = Column(VARCHAR(50))
-#     cislo_zastavka = Column(Integer)
-#     prumerna_doba = Column(VARCHAR(5))
-#     rozliseni = Column(Integer)
-
-
 class JdfOdjezdy(Base):
     __tablename__ = "jdf_odjezdy"  # name of the table
     id = Column(Integer, Sequence("jdf_odjezdy_id"), primary_key=True)
@@ -200,21 +188,6 @@ class JdfKalendarVyjimky(Base):
 
 Base.metadata.create_all(engine)
 
-
-# LinkyExt
-# SpojSkup
-# TODO Altdop - kalendář
-# TODO !!!!!!!!!!!!!! rozliseni linky u linky, spoje, zasspoje (zaslinky)
-# Altlinky
-# Navaznosti
-# ZasLinka
-# TODO pevne kody - zákaz přepravy mezi danými zastávkami
-
-# TODO rozliseni linky X kalendar JDF v1.10 a v1.11 - rozl. u spoje (pevne kody) a cas_kody
-
-# TODO vytvorit verzi pro spusteni s jednim jr - nebude se ptat do historie ani nebude pocitat s duplicitou linek - tim se vse urychli - spusteni historicke jen pres parametr
-
-#TODO u historicke verze nejak omezit pocet dotazu do db - napr mam zasspoje a tam za sebou nejake odjezdy jednoho spoje - nemusim se pro kazdou zastavku ptat znova na id linky a id spoje...
 
 class CzechCalendar(AbstractHolidayCalendar):
     rules = [
@@ -698,24 +671,6 @@ def parse_calendar(od, do, prac_den, svatek, po, ut, st, ct, pa, so, ne, casovek
 
     dbsession.commit()
     return id_kalendar
-
-#row_count = 0
-#def calculaterows(rootdir):
-#	global row_count
-#	for subdir, dirs, files in sorted(os.walk(rootdir)):
-#		#print(subdir)
-#		file_name = find_sensitive_path(subdir, 'Zasspoje.txt')
-#		if(file_name != None ): #os.path.exists(file_name)):
-#			#print(os.path.join(subdir, file_name))
-#			row_count = row_count + sum(1 for line in open(os.path.join(subdir, file_name),'r', encoding='cp1250'))
-#	return(row_count)
-#
-#def writelevel(row):
-#	global row_count
-#	percent = int(row/row_count*100)
-#	with open(os.path.join('.', 'lvl'),'w') as r:
-#		r.write(str(percent))
-#	print(str(percent) + '%', end='\r')
 
 def main():
     if os.path.exists(args.in_dir):
