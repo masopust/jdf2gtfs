@@ -30,7 +30,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument("in_dir", help="Path to input direcotry with JDF files or zip. Eventually directory where files from CIS JR will be unzipped and stored")
 parser.add_argument("out_dir", help="Path to output direcotry with GTFS files")
 parser.add_argument("--db_name", action="store", help="PostgreSQL database name",default= "postgres")
-parser.add_argument("--db_server",action="store", help="PostgreSQL database server",default= "postgres")
+parser.add_argument("--db_server",action="store", help="PostgreSQL database server",default= "localhost")
 parser.add_argument("--db_user",action="store", help="PostgreSQL database username",default= "postgres")
 parser.add_argument("--db_password", action="store", help="PostgreSQL database password",default= "postgres")
 parser.add_argument("--store_db_tables", action="store_true", help="If database tables in PostgreSQL database will be stored or deleted")
