@@ -5,9 +5,12 @@ Public transport timetable data are the base of analytics in public transport. I
 
 ### Requied packages and their versions
 * psycopg2  2.8.6
-* sqlalchemy 1.3.13
+* sqlalchemy 1.3.13 /does not run with 1.3.14 and higher/
 * pandas
 * wget
+
+### Other requirements
+* access to some PostgreSQL server/database
 
 ### Usage
 
